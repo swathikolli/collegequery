@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+
+.search-input {
+    border-radius: 3px;
+    padding: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d5cdcd;
+    font-size: 18px;
+}
+
+.button-search {
+    background-color: rgb(18, 135, 245);
+    color: snow;
+    font-size: 18px;
+    border-radius: 4px;
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-bottom: 50px;
+    padding-top: 10px;
+    padding: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.about-me-section {
+    background-color: #323f4b;
+}
+
+.about-me-section-sub-heading {
+    color: #cced00;
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.about-me-section-heading {
+    color: #cced00;
+    font-family: "Roboto";
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.about-me-section-description {
+    color: #ffffff;
+    font-family: "Roboto";
+    font-size: 16px;
+}
+
+.about-me-section-image {
+    width: 100%;
+}
+
+.skills-section {
+    background-color: #1f2933;
+}
+
+.skills-section-sub-heading {
+    color: #cced00;
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.skills-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.skills-card-image {
+    width: 75px;
+    height: 75px;
+}
+
+.skills-card-title {
+    color: black;
+    font-family: "Roboto";
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.skills-card-description {
+    color: black;
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.cq-footer-section {
+    background-color: #19232d;
+}
+
+.cq-logo {
+    width: 56px;
+    height: 36px;
+}
+
+.cq-footer-section-icon-container {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    padding-top: 15px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-left: 15px;
+    background-color: #19232d;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+.icon {
+
+    font-size: 18px;
+    color: white;
+}
+
+.cq-footer-section-text {
+    color: #5a7184;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.cq-footer-section-heading {
+    color: #5a7184;
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.cq-footer-section-list {
+    list-style-type: none;
+    padding-left: 0;
+    color: white;
+}
+
+.hr-line {
+    background-color: #5a7184;
+}
+
+.cq-footer-section-copyright {
+    color: #959ead;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.question-section-container {
+    width:80%;
+    background-color: white;
+    border-style: solid;
+    border-width: 0px;
+    border-color: #e5eaf4;
+    border-radius: 16px;
+    margin-bottom: 10px;
+}
+
+.question-user-section-img {
+    width: 100px;
+}
+
+.question-section-heading {
+    color: black;
+    font-family: "Roboto";
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.question-section-description {
+    color: #5a7184;
+    font-family: "Roboto";
+    font-size: 16px;
+}
+.login-section {
+    width:50%;
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #e5eaf4;
+    border-radius: 16px;
+}
+
+.signin-section-heading {
+    color: black;
+    font-family: "Roboto";
+    font-size: 40px;
+    font-weight: bold;
+    
+}
+
+.login-form {
+    border: 3px solid #f1f1f1;
+}
+
+/*assign full width inputs*/
+
+.login-input[type=text],
+.login-input[type=password] {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+/*set a style for the buttons*/
+
+.button-login {
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 15%;
+    border-radius: 10px;
+}
+
+/* set a hover effect for the button*/
+
+.button:hover {
+    opacity: 0.8;
+}
+
+/*set extra style for the cancel button*/
+
+/*centre the display image inside the container*/
+
+.imgcontainer {
+    text-align: center;
+    margin: 20px 0 12px 0;
+}
+
+/*set image properties*/
+.img-avatar {
+    width: 15%;
+    height: 15%;
+    border-radius: 40%;
+}
+
+
+/*set padding to the container*/
+
+.containerr {
+     
+    padding: 16px;
+    text-align: center;
+}
+.message{
+    size: 30px;
+    color:red;
+    text-shadow: 1px;
+}
