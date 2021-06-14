@@ -1,0 +1,148 @@
+{% extends "query/layout.html" %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/20c5629a29.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/static/assets/css/profile.css">
+<link id="theme-style" rel="stylesheet" href="/static/assets/css/theme-2.css">
+{% endblock %}
+{% block body %}
+   <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+           
+            <a class="navbar-brand" href="#">
+                <div class="container-fluid">
+                    <img src="https://res.cloudinary.com/dii3stlfq/image/upload/v1620878213/logo_2_ws9pmr.png" alt="" width="80" height="80" class="d-inline-block align-text-top rounded-circle" style="background-color:white;margin-left: 50%">
+                </div>
+            </a>
+            <blockquote class="blockquote m-auto">
+                <p class="mb-0 font-weight-bolder " style="color: black;"><strong>&nbsp;&nbsp;&nbsp;COLLEGE QUERY</strong></p>
+                <footer class="blockquote-footer pl-5 m-2 ">Ask Question <cite title="Source Title">Get Answer</cite></footer>
+                
+            </blockquote>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            {% for i in details %}
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-link active font-weight-bolder" id="navItem1" href="http://127.0.0.1:8000/home/{{ i.id }}">
+                        HOME
+                        <span class="sr-only">(current)</span>
+                    </a>
+                    <a class="nav-link font-weight-bolder"  href="http://127.0.0.1:8000/ask/{{ i.id }}" name="username" value="{{i.username}}">AskQuestion</a>
+                    <a class="nav-link font-weight-bolder" href="{% url 'index' %}">Sign Out</a>
+
+
+                </div>
+            </div>
+        </div>
+    </nav>
+    <header class="header text-center"> 
+      {% for i in details %}    
+        
+         <h1 class="blog-name pt-lg-4 mb-0" style="background-color: white">profile</h1>
+        <h1 class="blog-name pt-lg-4 mb-5 p-2"><a href="index.html" >Hello {{ i.username }}!!</a></h1>
+        
+        <nav class="navbar navbar-expand-lg navbar-dark m-auto" >
+           
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div id="navigation" class="collapse navbar-collapse flex-column mt-4 mb-4" >
+                <div class="profile-section pt-3 pt-lg-0">
+                  
+                    <!--<form action="{% url 'image' %}" method="post">
+                      {% csrf_token %}
+                      <input type="file" id="img" name="img" accept="image/*">
+                      <input type="text" name="t" value="{{ i.username }}" hidden>
+                      <input type="submit">
+                     </form>
+                     <img class="profile-image mb-3 rounded-circle mx-auto" src="{{ i.photo }}" alt="image" >-->
+                   {% if i.profile_pic %}
+                                        <img class="profile-image mb-3 rounded-circle mx-auto" src="{{i.profile_pic.url}}" alt="image" >
+
+                    {% else %}
+                                        <img class="profile-image mb-3 rounded-circle mx-auto" src="/static/assets/images/blog/user.jpg" alt="image" >
+
+                    {% endif %}
+                   
+                    
+                    
+                    <div class="bio mb-3">
+                    
+                    <h2>{{ i.username }}</h2><br>
+                    <h5>{{ i.mailid }}</h5>
+                    <ul>
+                        <li><h5><a class="nav-link" href="http://127.0.0.1:8000/postedQuestions/{{ i.id }}" name="username" value="{{i.username}}">Posted Questions</a></h5></li>
+                        <li><h5><a class="nav-link" href="http://127.0.0.1:8000/postedAnswers/{{ i.id }}" name="username" value="{{i.username}}">Posted Answers</a></h5></li>
+                        <li><h5><a class="nav-link" href="http://127.0.0.1:8000/password_change/{{ i.id }}" name="username" value="{{i.username}}">Change Password</a></h5></li>
+                        <li><h5>{{questioner_mailid}}</h5></li>
+
+            
+                    </ul>
+                    </div><!--//bio-->
+                    <ul class="social-list list-inline py-3 mx-auto">
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-twitter fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-github-alt fa-fw"></i></a></li>
+                       
+                        
+                    </ul>
+                    <hr> 
+                </div><!--//profile-section-->
+                </div>
+            </nav>
+            {% endfor %}
+        </header>
+
+   {% for q in question %}
+        <article class="blog-post px-3 py-5 p-md-5">
+            <div class="container">
+                <header class="blog-post-header">
+                    <h2 class="title mb-2">{{ q.title }}</h2>
+                    <h5>{{ q.description }}</h5>
+                    <div class="meta mb-3"><span class="date">{{ q.date }}</span><span class="time">{{ q.time }}</span>{% for u in uname %} {% if u.id == q.id %}<span class="comment"> {{u.username}}  </span>{% endif %} {% endfor %}</div>
+                </header>
+                
+                <div class="blog-post-body">
+                   
+                    <p>{% for a in answers %}
+                            {% for u in  user_name_answer %}
+                                   {% if u.id == a.id %}
+                                          <div class="shadow p-3 mb-3"style=" border-radius: 16px;"> <p style="color: #323f4b;">{{ a.ans }}</p>  <p style="color: darkgoldenrod;"> --> answered by {{ u.username }} </p> </div>
+                                    {% endif %} 
+                            {% endfor %}
+                       {% endfor %}</p>
+                    
+                    
+                    <h3 class="mt-5 mb-3">Your Answer:</h3>
+                    <form action="{% url 'answer_details' %}" method="post">
+                   {% csrf_token %}
+                    <p>
+                    <input type="text" name="userid" value="{{i.id}}" hidden>
+                    <input type="text" name="qid" value="{{q.id}}" hidden>
+
+                    <textarea name="description" placeholder="Enter your Answer here............" cols="90" rows="15"></textarea></p>
+                                    <div class="text-center btn-block">
+                                      <a href="http://127.0.0.1:8000/question/{{ i.id }}/{{ q.id }}" name="q_id" value="{{ q.id }}"><button  type="button" class="btn btn-primary ">Cancel</button></a>
+                                      <button type="submit" class="btn btn-success ">Post</button>
+                                   </div>
+                    </form>
+                    <pre><code></code>
+                    
+                
+                    
+               
+            </div><!--//container-->
+        </article>
+        
+   
+
+{% endfor %}
+{% endfor %}
+{% endblock %}

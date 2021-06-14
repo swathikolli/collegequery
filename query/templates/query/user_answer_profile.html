@@ -1,0 +1,150 @@
+{% extends "query/layout.html" %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/20c5629a29.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/static/assets/css/profile.css">
+<link id="theme-style" rel="stylesheet" href="/static/assets/css/theme-2.css">
+{% endblock %}
+{% block body %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+            
+             <a class="navbar-brand" href="#">
+                <div class="container-fluid">
+                    <img src="https://res.cloudinary.com/dii3stlfq/image/upload/v1620878213/logo_2_ws9pmr.png" alt="" width="80" height="80" class="d-inline-block align-text-top rounded-circle" style="background-color:white;margin-left: 50%">
+                </div>
+            </a>
+            <blockquote class="blockquote m-auto">
+                <p class="mb-0 font-weight-bolder " style="color: black;"><strong>&nbsp;&nbsp;&nbsp;COLLEGE QUERY</strong></p>
+                <footer class="blockquote-footer pl-5 m-2 ">Ask Question <cite title="Source Title">Get Answer</cite></footer>
+                
+            </blockquote>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            {% for i in details %}
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-link active font-weight-bolder" id="navItem1" href="http://127.0.0.1:8000/home/{{ i.id }}">
+                        HOME
+                    </a>
+                    <a class="nav-link font-weight-bolder"  href="http://127.0.0.1:8000/ask/{{ i.id }}" name="username" value="{{i.username}}">AskQuestion</a>
+                    <a class="nav-link font-weight-bolder" href="{% url 'index' %}">Sign Out</a>
+
+
+                </div>
+            </div>
+        </div>
+    </nav>
+    <header class="header text-center">   
+        {% for i in details %}  
+        
+        <h1 class="blog-name pt-lg-4 mb-0" style="background-color: white">profile</h1>
+        <h1 class="blog-name pt-lg-4  mb-5 p-2" ><a href="index.html" >Hello {{ i.username }}!!</a></h1>
+        
+        <nav class="navbar navbar-expand-lg navbar-dark" >
+           
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div id="navigation" class="collapse navbar-collapse flex-column" >
+                <div class="profile-section pt-3 pt-lg-0">
+                   
+                    <!--<form action="{% url 'image' %}" method="post">
+                      {% csrf_token %}
+                      <input type="file" id="img" name="img" accept="image/*">
+                      <input type="text" name="t" value="{{ i.username }}" hidden>
+                      <input type="submit">
+                     </form>
+                     <img class="profile-image mb-3 rounded-circle mx-auto" src="{{ i.photo }}" alt="image" >-->
+                     {% if i.profile_pic %}
+                                        <img class="profile-image mb-3 rounded-circle mx-auto" src="{{i.profile_pic.url}}" alt="image" >
+
+                    {% else %}
+                                        <img class="profile-image mb-3 rounded-circle mx-auto" src="/static/assets/images/blog/user.jpg" alt="image" >
+
+                    {% endif %}
+                   
+                    
+                    <div class="bio mb-3">
+                    
+                    <h2>{{ i.username }}</h2><br>
+                    <h5>{{ i.mailid }}</h5>
+                    <ul>
+                        <li><h5><a class="nav-link" href="http://127.0.0.1:8000/postedQuestions/{{ i.id }}" name="username" value="{{i.username}}">Posted Questions</a></h5></li>
+                        <li><h5><a class="nav-link" href="http://127.0.0.1:8000/postedAnswers/{{ i.id }}" name="username" value="{{i.username}}">Posted Answers</a></h5></li>
+                        <li><h5><a class="nav-link" href="http://127.0.0.1:8000/password_change/{{ i.id }}" name="username" value="{{i.username}}">Change Password</a></h5></li>
+            
+                    </ul>
+                    </div><!--//bio-->
+                    <ul class="social-list list-inline py-3 mx-auto">
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-twitter fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-github-alt fa-fw"></i></a></li>
+                       
+                        
+                    </ul>
+                    <hr> 
+                </div><!--//profile-section-->
+                </div>
+            </nav>
+            {% endfor %}
+        </header>
+
+    <div class="container">
+          <div class="row">
+          <div class="col-12">
+                   
+                            <form class="signup-form form-inline justify-content-center pt-3" action="{% url 'search' %}" method="post">
+                     {% csrf_token %}
+                        <input type="text" id="text" name="userid" value="{{ i.id }}" hidden>
+                
+                        <input  type="text" class="search-input" id="searchInput" name="question"  placeholder="Enter question here!!">
+                        
+                          
+        
+                    <input type="submit" class="btn btn-primary" value="search">
+
+                    
+                </form>
+            
+                </div>
+            </div>
+        </div>
+                <div class="d-flex flex-row justify-content-center  pt-1 pb-1" >
+                    <div class="question-section pt-5 pb-5">
+                         {% for q in questions %}
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 col-md-5 order-1 order-md-1">
+                                    <div class="text-center">
+                                        <img src="https://i.pinimg.com/originals/fe/1f/4e/fe1f4e39feec16bbfbcf4d02d148b6d9.png" class="question-section-img" />
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-7 order-2 order-md-2">
+                                    <h4 class="question-section-heading">
+                                        <a href="http://127.0.0.1:8000/user_answer/{{ i.id }}/{{ q.id }}" name="q_id" value="{{ q.id }}">{{ q.title }}</a>
+                                    </h4>
+                                    <h6>{{ q.description }}</h6>
+                                    <div class="d-flex flex-row">
+                                        <p class="question-section-description mr-5">{{ q.date }}</p>
+                                        <p class="question-section-description mr-5"> {{ q.time }}</p>
+                                        <p class="question-section-description mr-5"> {% for u in uname %} {% if u.id == q.id %}<span class="comment"> {{u.username}}   </span>{% endif %} {% endfor %} </p>
+                                    </div>
+                                    <h6><a class="more-link" href="http://127.0.0.1:8000/user_answer/{{ i.id }}/{{ q.id }}">Read more &rarr;</a></h6>
+                                </div>
+                            </div>
+                        </div>
+                       {% endfor %}
+                </div>
+            
+    </div>
+   
+
+{% endfor %}
+{% endblock %}
